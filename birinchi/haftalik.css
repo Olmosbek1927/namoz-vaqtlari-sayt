@@ -12,7 +12,6 @@ body {
   line-height: 1.6;
 }
 
-/* --- Container --- */
 .container {
   width: 90%;
   max-width: 1000px;
@@ -20,7 +19,6 @@ body {
   padding: 20px 0;
 }
 
-/* --- Header --- */
 header {
   background: #2d8b73;
   color: white;
@@ -35,7 +33,6 @@ header {
   margin-bottom: 10px;
 }
 
-/* --- Navigatsiya --- */
 .calendar-nav ul {
   list-style: none;
   padding: 0;
@@ -81,7 +78,6 @@ header {
   color: #2d8b73;
 }
 
-/* --- Region va oy tanlash --- */
 #region,
 .month-select select,
 .region-select select {
@@ -104,14 +100,12 @@ header {
   border-color: #2d8b73;
 }
 
-/* Region va oy tanlash bloklari */
 .region-select,
 .month-select {
   margin: 20px 0;
   text-align: center;
 }
 
-/* --- Namoz box --- */
 .namoz-box {
   background: white;
   margin-top: 20px;
@@ -128,11 +122,13 @@ header {
   font-size: 1.5rem;
 }
 
-/* --- Namoz vaqtlari jadvali --- */
 .namoz-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 1rem;
+  box-shadow: 0 3px 8px rgba(45,139,115,0.1);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .namoz-table th,
@@ -157,7 +153,6 @@ header {
   transition: background-color 0.3s ease;
 }
 
-/* --- Tugmalar --- */
 .next-btn {
   display: inline-block;
   padding: 12px 24px;
@@ -183,13 +178,11 @@ header {
   transform: scale(0.95);
 }
 
-/* Tugmalar konteyneri */
-div {
+.buttons-container {
   text-align: center;
   margin: 20px 0;
 }
 
-/* --- Footer --- */
 footer {
   background: #222;
   color: white;
@@ -199,83 +192,68 @@ footer {
   font-size: 0.9rem;
 }
 
-/* --- Responsive (mobil uchun) --- */
+/* --- Responsive mobil uchun: karta uslubidagi jadval --- */
 @media (max-width: 600px) {
-  header {
-    padding: 15px 10px;
-  }
-
-  .namoz-box {
-    padding: 15px;
-  }
-
-  .namoz-table th,
-  .namoz-table td {
-    padding: 8px 10px;
-    font-size: 0.9rem;
-  }
-
   #region,
   .month-select select,
   .region-select select {
     width: 100%;
   }
 
-  /* Jadvalni block va scroll qilish uchun mobilga moslashuv */
   .namoz-table {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    border: none;
+    box-shadow: none;
   }
 
-  .namoz-table thead,
-  .namoz-table tbody,
-  .namoz-table th,
-  .namoz-table td,
-  .namoz-table tr {
-    display: block;
+  .namoz-table thead {
+    display: none; /* sarlavhalarni yashiramiz */
   }
 
-  /* Bosh qatorni yashirish (agar kerak bo‘lsa) */
-  .namoz-table thead tr {
-    display: none;
-  }
-
-  /* Har bir qatorni kartochka ko‘rinishida ko‘rsatish */
   .namoz-table tbody tr {
+    display: block;
     margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 10px;
     background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 15px 20px;
   }
 
-  /* Katakchalarni vertikal ko‘rsatish */
+  .namoz-table tbody tr:nth-child(even) {
+    background-color: white;
+  }
+
+  .namoz-table tbody tr:hover {
+    background-color: white;
+  }
+
   .namoz-table tbody tr td {
-    text-align: right;
-    padding-left: 50%;
-    position: relative;
-    border-bottom: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
     font-weight: 600;
     color: #2d8b73;
   }
 
-  /* Har bir katakchaga sarlavha qo‘yish uchun */
-  .namoz-table tbody tr td::before {
-    content: attr(data-label);
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    font-weight: 700;
-    color: #2d8b73;
-    white-space: nowrap;
+  .namoz-table tbody tr td:last-child {
+    border-bottom: none;
   }
 
-  /* Tugmalarni kengaytirish va markazlash */
+  /* Har bir katakcha uchun sarlavha (data-label dan) */
+  .namoz-table tbody tr td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: #2d8b73;
+    flex-shrink: 0;
+  }
+
+  .buttons-container {
+    margin: 15px 0;
+  }
+
   .next-btn {
-    margin: 10px 5px;
-    width: 45%;
+    width: 30%;
+    margin: 10px 1%;
     font-size: 1rem;
   }
 }
