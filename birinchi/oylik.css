@@ -1,6 +1,4 @@
-/* Oylik namoz vaqtlari uchun CSS: Haftalik.css ga o‘xshash dizayn */
-
-/* Reset va asosiy */
+/* --- Reset va asosiy --- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,7 +12,7 @@ body {
   line-height: 1.6;
 }
 
-/* Container */
+/* --- Container --- */
 .container {
   max-width: 900px; /* haftalikdagi kabi */
   width: 90%;
@@ -22,7 +20,7 @@ body {
   padding: 20px 0;
 }
 
-/* Header */
+/* --- Header --- */
 header {
   background-color: #2d8b73; /* oylikka mos yashil soya */
   color: white;
@@ -44,7 +42,7 @@ header p.date {
   opacity: 0.85;
 }
 
-/* Navigatsiya */
+/* --- Navigatsiya --- */
 nav.calendar-nav ul {
   list-style: none;
   padding: 0;
@@ -52,6 +50,7 @@ nav.calendar-nav ul {
   display: flex;
   justify-content: center;
   gap: 15px;
+  flex-wrap: wrap;
 }
 
 nav.calendar-nav ul li a {
@@ -89,7 +88,7 @@ nav.calendar-nav ul li a.about-link:focus {
   color: #2d8b73;
 }
 
-/* Region va oy tanlash bloklari */
+/* --- Region va oy tanlash bloklari --- */
 .region-select,
 .month-select {
   margin: 20px 0;
@@ -105,7 +104,7 @@ nav.calendar-nav ul li a.about-link:focus {
   color: #2d8b73;
 }
 
-/* Region va oy tanlash select */
+/* --- Region va oy tanlash select --- */
 #region,
 #month {
   padding: 10px 14px;
@@ -126,7 +125,7 @@ nav.calendar-nav ul li a.about-link:focus {
   border-color: #2d8b73;
 }
 
-/* Namoz box */
+/* --- Namoz box --- */
 .namoz-box {
   background: white;
   margin-top: 30px;
@@ -144,7 +143,7 @@ nav.calendar-nav ul li a.about-link:focus {
   letter-spacing: 0.05em;
 }
 
-/* Namoz vaqtlari jadvali */
+/* --- Namoz vaqtlari jadvali --- */
 .namoz-table {
   width: 100%;
   border-collapse: collapse;
@@ -178,7 +177,7 @@ nav.calendar-nav ul li a.about-link:focus {
   transition: background-color 0.3s ease;
 }
 
-/* Footer */
+/* --- Footer --- */
 footer {
   background: #222;
   color: white;
@@ -189,7 +188,7 @@ footer {
   box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
 }
 
-/* Responsive (mobil uchun) */
+/* --- Responsive (mobil uchun) --- */
 @media (max-width: 600px) {
   header h1 {
     font-size: 1.5rem;
@@ -213,5 +212,56 @@ footer {
   #region,
   #month {
     width: 100%;
+  }
+
+  /* Jadvalni blok ko'rinishida ko'rsatish va scroll qilish */
+  .namoz-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .namoz-table thead,
+  .namoz-table tbody,
+  .namoz-table th,
+  .namoz-table td,
+  .namoz-table tr {
+    display: block;
+  }
+
+  /* Bosh qatorni yashirish */
+  .namoz-table thead tr {
+    display: none;
+  }
+
+  /* Har bir qatorni kartochka ko'rinishida ko'rsatish */
+  .namoz-table tbody tr {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background: white;
+  }
+
+  /* Katakchalarni vertikal ko'rsatish */
+  .namoz-table tbody tr td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+    border-bottom: none;
+    font-weight: 600;
+    color: #2d8b73;
+  }
+
+  /* Har bir katakchaga sarlavha qo‘yish uchun */
+  .namoz-table tbody tr td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-weight: 700;
+    color: #2d8b73;
+    white-space: nowrap;
   }
 }
