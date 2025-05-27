@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Namoz Vaqtlari - Haftalik</title>
+  <link rel="stylesheet" href="./haftalik.css" />
+
+  <style>
+   .next-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 0 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background-color: #007BFF; /* Moviy rang */
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease, transform 0.2s;
+  cursor: pointer;
+  user-select: none;
+}
+
+.next-btn:hover {
+  background-color: #0056b3; /* To‘qroq moviy */
+  transform: scale(1.05);
+}
+
+.next-btn:active {
+  transform: scale(0.95);
+}
+
+/* Agar tugmalarni div ichida gorizontal qilib markazlashtirmoqchi bo‘lsangiz: */
+div {
+  text-align: center;
+  margin: 20px 0;
+}
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>🕌 Haftalik Namoz Vaqtlari</h1>
+      <p class="date">Hafta: <span id="week-range"></span></p>
+
+      <nav class="calendar-nav">
+        <ul>
+          <li><a href="../index.html" target="_blank" rel="noopener">📅 bosh_sahifa</a></li>
+          <li><a href="haftalik.html" class="active">📅 Haftalik_Taqvim</a></li>
+          <li><a href="oylik.html" target="_blank" rel="noopener">🗓️ Oylik_Taqvim</a></li>
+          <li><a href="biz.html" class="about-link" target="_blank" rel="noopener">ℹ️ Biz_haqimizda</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <!-- Mintaqa tanlash -->
+      <section class="region-select">
+        <label for="region">Mintaqani tanlang:</label>
+        <select id="region" name="region"></select>
+      </section>
+
+      <!-- Haftalik namoz vaqtlari -->
+      <section class="namoz-box">
+        <h2>📅 Haftalik namoz vaqtlari</h2>
+        <table class="namoz-table">
+          <thead>
+            <tr>
+              <th>Kun</th>
+              <th>Tong</th>
+              <th>Quyosh</th>
+              <th>Peshin</th>
+              <th>Asr</th>
+              <th>Shom</th>
+              <th>Xufton</th>
+            </tr>
+          </thead>
+          <tbody id="weekly-times">
+            <!-- JS to‘ldiradi -->
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Orqaga va Oldinga tugmalar -->
+      <div>
+        <a href="../index.html" class="next-btn">Orqaga</a>
+        <a href="./oylik.html" class="next-btn">Oldinga</a>
+      </div>
+      
+    </div>
+
+
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 NamozVaqtlari.uz | Diniy xizmatlar uchun</p>
+    </div>
+  </footer>
+
+  
+  <script src="haftalik.js"></script>
+<script>
+  function goBack() {
+    window.history.back();
+  }
+
+  function goForward() {
+    window.history.forward();
+  }
+</script>
+
+</body>
+</html>

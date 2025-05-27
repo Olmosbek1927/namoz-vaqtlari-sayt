@@ -1,0 +1,217 @@
+/* Oylik namoz vaqtlari uchun CSS: Haftalik.css ga o‘xshash dizayn */
+
+/* Reset va asosiy */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f8f9; /* ozgina ochroq fon */
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  max-width: 900px; /* haftalikdagi kabi */
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+/* Header */
+header {
+  background-color: #2d8b73; /* oylikka mos yashil soya */
+  color: white;
+  padding: 25px 0;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+header p.date {
+  margin-top: 6px;
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+/* Navigatsiya */
+nav.calendar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+nav.calendar-nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  border: 1px solid white;
+  padding: 6px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: inline-block;
+}
+
+nav.calendar-nav ul li a:hover,
+nav.calendar-nav ul li a:focus {
+  background-color: white;
+  color: #2d8b73;
+  outline: none;
+}
+
+nav.calendar-nav ul li a.active {
+  background-color: white;
+  color: #2d8b73;
+}
+
+nav.calendar-nav ul li a.about-link {
+  font-style: italic;
+  border-color: #f0c419;
+  color: #f0c419;
+}
+
+nav.calendar-nav ul li a.about-link:hover,
+nav.calendar-nav ul li a.about-link:focus {
+  background-color: #f0c419;
+  color: #2d8b73;
+}
+
+/* Region va oy tanlash bloklari */
+.region-select,
+.month-select {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.region-select label,
+.month-select label {
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 8px;
+  color: #2d8b73;
+}
+
+/* Region va oy tanlash select */
+#region,
+#month {
+  padding: 10px 14px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1.5px solid #ccc;
+  width: 220px;
+  max-width: 100%;
+  outline-color: #2d8b73;
+  transition: border-color 0.3s ease;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
+
+#region:focus,
+#month:focus {
+  border-color: #2d8b73;
+}
+
+/* Namoz box */
+.namoz-box {
+  background: white;
+  margin-top: 30px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.namoz-box h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #2d8b73;
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: 0.05em;
+}
+
+/* Namoz vaqtlari jadvali */
+.namoz-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+  box-shadow: 0 3px 10px rgba(45,139,115,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.namoz-table thead tr {
+  background-color: #d2f0e4;
+  color: #2d8b73;
+  font-weight: 700;
+}
+
+.namoz-table th,
+.namoz-table td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  color: #2d8b73;
+  font-weight: 600;
+}
+
+.namoz-table tbody tr:nth-child(even) {
+  background-color: #f4f8f9;
+}
+
+.namoz-table tbody tr:hover {
+  background-color: #d2f0e4;
+  transition: background-color 0.3s ease;
+}
+
+/* Footer */
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 15px 10px;
+  font-size: 0.9rem;
+  margin-top: 40px;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+/* Responsive (mobil uchun) */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  header {
+    padding: 15px 10px;
+  }
+
+  .namoz-box {
+    padding: 15px;
+    margin-top: 20px;
+  }
+
+  .namoz-table th,
+  .namoz-table td {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+
+  #region,
+  #month {
+    width: 100%;
+  }
+}

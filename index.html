@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Namoz Vaqtlari - 5 Mahallik</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #f0f7f4;
+      color: #2d8b73;
+    }
+    header {
+      background: #2d8b73;
+      color: white;
+      padding: 25px 0;
+      text-align: center;
+      position: relative;
+    }
+    .date {
+      font-size: 1rem;
+      opacity: 0.85;
+      margin-bottom: 10px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    nav.calendar-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px auto 30px auto;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      max-width: 400px;
+    }
+    nav.calendar-nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      border: 1.8px solid white;
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: none;
+    }
+    nav.calendar-nav ul li a:hover,
+    nav.calendar-nav ul li a:focus {
+      background-color: white;
+      color: #2d8b73;
+      box-shadow: 0 0 8px rgba(45, 139, 115, 0.7);
+      outline: none;
+    }
+    nav.calendar-nav ul li a.about-link {
+      font-style: italic;
+      border-color: #f0c419;
+      color: #f0c419;
+    }
+    nav.calendar-nav ul li a.about-link:hover,
+    nav.calendar-nav ul li a.about-link:focus {
+      background-color: #f0c419;
+      color: #2d8b73;
+      box-shadow: 0 0 8px rgba(240, 196, 25, 0.8);
+    }
+
+    section.region-select {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    section.region-select label {
+      font-weight: 600;
+      margin-right: 10px;
+      font-size: 1.1rem;
+    }
+    section.region-select select {
+      padding: 8px 12px;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1.8px solid #2d8b73;
+      color: #2d8b73;
+      min-width: 180px;
+      cursor: pointer;
+      transition: box-shadow 0.3s ease;
+    }
+    section.region-select select:focus {
+      outline: none;
+      box-shadow: 0 0 8px rgba(45, 139, 115, 0.7);
+    }
+
+    section.namoz-box {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 12px rgba(45, 139, 115, 0.15);
+      margin-bottom: 40px;
+    }
+    section.namoz-box h2 {
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+    table.namoz-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table.namoz-table th,
+    table.namoz-table td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+      font-size: 1.1rem;
+    }
+    table.namoz-table th {
+      background-color: #e6f0ec;
+      color: #2d8b73;
+    }
+
+    section.cards {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    section.cards .card {
+      background: white;
+      flex: 1 1 130px;
+      max-width: 130px;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 12px rgba(45, 139, 115, 0.15);
+      text-align: center;
+      color: #2d8b73;
+    }
+    section.cards .card h4 {
+      margin: 0 0 10px 0;
+      font-size: 1.1rem;
+    }
+    section.cards .card img {
+      max-width: 50px;
+      margin-bottom: 12px;
+    }
+    section.cards .card .time {
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    /* Oldinga tugma uslubi */
+    .next-btn {
+      display: inline-block;
+      background-color: #2d8b73;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      margin-top: 20px;
+      
+    }
+    .next-btn:hover {
+      background-color: #256d5d;
+      box-shadow: 0 0 10px rgba(45, 139, 115, 0.6);
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px 0;
+      background: #2d8b73;
+      color: white;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>🕌 Namoz Vaqtlari</h1>
+      <p class="date">27-may, 2025</p>
+      <nav class="calendar-nav">
+        <ul>
+          <li><a href="index.html" target="_blank" rel="noopener">📅 bosh_sahifa</a></li>
+          <li><a href="./birinchi/haftalik.html" target="_blank" rel="noopener">📅 Haftalik_Taqvim</a></li>
+          <li><a href="./birinchi/oylik.html" target="_blank" rel="noopener">🗓️ Oylik_Taqvim</a></li>
+          <li><a href="./birinchi/biz.html" class="about-link" target="_blank" rel="noopener">ℹ️ Biz_haqimizda</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <!-- Mintaqa tanlash -->
+      <section class="region-select">
+        <label for="region">Mintaqani tanlang:</label>
+        <select id="region" name="region"></select>
+      </section>
+
+      <!-- Bugungi namoz vaqtlari -->
+      <section class="namoz-box">
+        <h2>📅 Bugungi namoz vaqtlari</h2>
+        <table class="namoz-table">
+          <thead>
+            <tr>
+              <th>Namoz</th>
+              <th>Vaqti</th>
+            </tr>
+          </thead>
+          <tbody id="today-times">
+            <!-- JS orqali to‘ldiriladi -->
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Kartochkalar (6 ta namoz) -->
+      <section class="cards">
+        <div class="card">
+          <h4>Tong</h4>
+          <img src="./images/0.svg" alt="Tong namoz ikonasi" />
+          <div class="time">--:--</div>
+        </div>
+        <div class="card">
+          <h4>Quyosh</h4>
+          <img src="./images/1.svg" alt="Quyosh namoz ikonasi" />
+          <div class="time">--:--</div>
+        </div>
+        <div class="card">
+          <h4>Peshin</h4>
+          <img src="./images/2.svg" alt="Peshin namoz ikonasi" />
+          <div class="time">--:--</div>
+        </div>
+        <div class="card">
+          <h4>Asr</h4>
+          <img src="./images/3.svg" alt="Asr namoz ikonasi" />
+          <div class="time">--:--</div>
+        </div>
+        <div class="card">
+          <h4>Shom</h4>
+          <img src="./images/4.svg" alt="Shom namoz ikonasi" />
+          <div class="time">--:--</div>
+        </div>
+        <div class="card">
+          <h4>Xufton</h4>
+          <img src="./images/5.svg" alt="Xufton namoz ikonasi" />
+          <div class="time">--:--</div>
+        </div>
+      </section>
+
+      <!-- Oldinga tugma -->
+      <div>
+        <a href="./birinchi/haftalik.html" class="next-btn">➡️ Oldinga</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 NamozVaqtlari.uz | Baxodirov tomonidan ishlab chiqarilgan</p>
+      <p> Dasturchi bilan bog`lanish uchun murojaat qiling: +998 88 189 09 27 </p>
+      <p> Email: olmos1927o@gmail.com </p>
+    </div>
+  </footer>
+
+  <script src="./birinchi/bosh.js"></script>
+</body>
+</html>
